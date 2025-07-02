@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import { Tilt } from "./components/Tilt";
 import { Particles } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import { FaSun, FaMoon, FaArrowUp, FaBars } from "react-icons/fa";
+import { FaSun, FaMoon, FaArrowUp, FaFacebookF, FaInstagram } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -13,7 +13,6 @@ function App() {
   const [selected, setSelected] = useState({ category: "", subsection: "" });
   const [darkMode, setDarkMode] = useState(true);
   const [showTopBtn, setShowTopBtn] = useState(false);
-  const [showPages, setShowPages] = useState(false);
   const navigate = useNavigate();
 
   const handleSelect = (category, subsection) => {
@@ -36,13 +35,6 @@ function App() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const pages = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Gallery", path: "/gallery" },
-    { name: "Contact", path: "/contact" },
-  ];
 
   const keyMap = {
     "Painted Bottles": "paintedbottles",
@@ -185,14 +177,14 @@ function App() {
       <Navbar onSelect={handleSelect} darkMode={darkMode} />
 
       {/* Theme Toggle */}
-      <div className="fixed bottom-28 left-6 z-50">
+      <div className="fixed bottom-24 left-6 z-50">
         <button
           onClick={toggleTheme}
-          className={`p-3 ${
+          className={`p-3 rounded-full shadow-lg hover:scale-110 transition ${
             darkMode
               ? "bg-gradient-to-r from-pink-500 to-purple-700"
               : "bg-gradient-to-r from-yellow-300 to-pink-400"
-          } rounded-full shadow-xl hover:scale-110 transition`}
+          }`}
         >
           {darkMode ? (
             <FaSun className="text-white text-xl" />
@@ -205,11 +197,11 @@ function App() {
       {/* Back to Top */}
       {showTopBtn && (
         <button
-          className={`fixed bottom-20 right-6 z-50 p-3 rounded-full shadow-xl ${
+          className={`fixed bottom-24 right-6 z-50 p-3 rounded-full shadow-xl hover:scale-110 transition ${
             darkMode
               ? "bg-gradient-to-r from-pink-500 to-purple-700 text-white"
               : "bg-gradient-to-r from-yellow-300 to-pink-400 text-black"
-          } hover:scale-110 transition`}
+          }`}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
           <FaArrowUp />
@@ -218,51 +210,26 @@ function App() {
 
       {/* Hero Section */}
       <div
-        className="relative flex flex-col md:flex-row items-center justify-center text-center md:text-left px-6 py-24 gap-16 z-10"
+        className="relative flex flex-col md:flex-row items-center justify-center text-center md:text-left px-6 py-24 gap-6 z-10"
         data-aos="fade-up"
       >
-        {/* Pages Button */}
-        <div className="absolute top-6 left-6">
-          <button
-            onClick={() => setShowPages(!showPages)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg border shadow-md ${
-              darkMode
-                ? "bg-black/80 border-pink-500 text-white hover:text-pink-400"
-                : "bg-white border-yellow-400 text-black hover:text-pink-600"
-            }`}
-          >
-            <FaBars /> Pages
-          </button>
-
-          {showPages && (
-            <div
-              className={`absolute mt-2 left-0 rounded-xl border shadow-xl p-4 z-[999] ${
-                darkMode
-                  ? "bg-black/80 border-pink-500"
-                  : "bg-gradient-to-tr from-white via-pink-50 to-peach-50 border-yellow-400"
-              }`}
-            >
-              <ul className="space-y-2">
-                {pages.map((page) => (
-                  <li
-                    key={page.name}
-                    onClick={() => {
-                      navigate(page.path);
-                      setShowPages(false);
-                    }}
-                    className={`cursor-pointer text-center rounded-lg px-4 py-2 text-sm font-medium transition-all hover:scale-105 ${
-                      darkMode
-                        ? "bg-black hover:bg-pink-700 text-white"
-                        : "bg-white hover:bg-pink-200 text-black"
-                    }`}
-                  >
-                    {page.name}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
+        {/* Social Icons */}
+        <a
+          href="https://www.facebook.com/share/1AtrSA3Qkc/?mibextid=wwXIfr"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed top-24 left-6 md:left-8 p-3 rounded-full shadow-2xl bg-blue-600 hover:scale-110 z-50"
+        >
+          <FaFacebookF className="text-white text-xl" />
+        </a>
+        <a
+          href="https://www.instagram.com/____rashmita_____?igsh=MXVjNzN1OWdvYW9jYg%3D%3D&utm_source=qr"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed top-24 right-6 md:right-8 p-3 rounded-full shadow-2xl bg-gradient-to-r from-pink-500 to-purple-500 hover:scale-110 z-50"
+        >
+          <FaInstagram className="text-white text-xl" />
+        </a>
 
         {/* Hero Image */}
         <div className="flex flex-col items-center md:items-start">
@@ -324,15 +291,15 @@ function App() {
       </div>
 
       {/* Collection Section */}
-      <section className="relative z-10 py-20 px-8">
-        <h2 className="text-4xl font-bold mb-12 text-center">
+      <section className="relative z-10 py-4 px-8">
+        <h2 className="text-4xl font-bold mb-6 text-center">
           {selected.category
             ? `${selected.subsection} - (${selected.category})`
             : "Explore Our Collections"}
         </h2>
 
         {selected.category ? (
-          <div className="flex flex-col md:flex-row justify-center items-center gap-10 flex-wrap">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-6 flex-wrap">
             {getImagesForSelection().map((imgSrc, index) => (
               <Tilt
                 key={index}
@@ -343,10 +310,10 @@ function App() {
                   glare: true,
                   "max-glare": 0.3,
                 }}
-                className={`w-[450px] h-[450px] rounded-3xl overflow-hidden shadow-2xl hover:scale-105 transition ${
+                className={`w-[460px] h-[460px] rounded-3xl overflow-hidden hover:scale-105 transition ${
                   darkMode
-                    ? "bg-black/40 backdrop-blur-lg border border-pink-500"
-                    : "bg-black backdrop-blur-lg border border-black"
+                    ? "bg-black/40 backdrop-blur-lg border border-pink-500 shadow-[0_20px_50px_rgba(255,0,255,0.6)]"
+                    : "bg-white/80 backdrop-blur-lg border border-black shadow-[0_20px_50px_rgba(255,20,147,0.9)]"
                 }`}
               >
                 <img
@@ -370,4 +337,3 @@ function App() {
 }
 
 export default App;
-

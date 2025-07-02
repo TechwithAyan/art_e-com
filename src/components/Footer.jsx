@@ -7,9 +7,9 @@ const Footer = ({ darkMode }) => {
           : "bg-gradient-to-r from-[#ffe0e9] via-[#ffd6d6] to-[#ffe7d9] border-yellow-400"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-10">
         <p
-          className={`text-3xl md:text-4xl lg:text-5xl text-center font-cursive leading-relaxed drop-shadow-xl ${
+          className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-cursive leading-relaxed drop-shadow-xl ${
             darkMode ? "text-white" : "text-black"
           }`}
           style={{
@@ -40,7 +40,7 @@ const Footer = ({ darkMode }) => {
       </div>
 
       <div
-        className={`text-center py-4 text-sm tracking-wider ${
+        className={`text-center py-4 text-xs sm:text-sm tracking-wider ${
           darkMode ? "text-pink-300" : "text-orange-500"
         }`}
       >
