@@ -5,7 +5,13 @@ import Footer from "./components/Footer";
 import { Tilt } from "./components/Tilt";
 import { Particles } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import { FaSun, FaMoon, FaArrowUp, FaFacebookF, FaInstagram } from "react-icons/fa";
+import {
+  FaSun,
+  FaMoon,
+  FaArrowUp,
+  FaFacebookF,
+  FaInstagram,
+} from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -44,11 +50,11 @@ function App() {
     "Decoupage Bottles": "decoupagebottles",
     "Themed Bottle Decor": "themedbottledecor",
     "Name Bottles": "namebottles",
-    "Dreamcatcher": "dreamcatcher",
-    "Mandala": "mandala",
+    Dreamcatcher: "dreamcatcher",
+    Mandala: "mandala",
     "Mirror Art": "mirrorart",
     "Fridge Magnet": "fridgemagnet",
-    "Clock": "clock",
+    Clock: "clock",
     "Bottle Cap Fridge Magnets": "bottlecapfridgemagnets",
     "Plastic Spoon Flowers": "plasticspoonflowers",
     "CD Art Wall Pieces": "cdartwallpieces",
@@ -69,8 +75,8 @@ function App() {
     "Pen Stand": "penstand",
     "Gift Box": "giftbox",
     "Jewellery Box": "jewellerybox",
-    "Earrings": "earrings",
-    "Necklaces": "necklaces",
+    Earrings: "earrings",
+    Necklaces: "necklaces",
     "Brooches & Hair Accessories": "hairaccessories",
     "Paper Flowers": "paperflowers",
     "Fabric Flowers": "fabricflowers",
@@ -310,7 +316,7 @@ function App() {
                   glare: true,
                   "max-glare": 0.3,
                 }}
-                className={`w-[460px] h-[460px] rounded-3xl overflow-hidden hover:scale-105 transition ${
+                className={`tilt-card rounded-3xl overflow-hidden hover:scale-105 transition ${
                   darkMode
                     ? "bg-black/40 backdrop-blur-lg border border-pink-500 shadow-[0_20px_50px_rgba(255,0,255,0.6)]"
                     : "bg-white/80 backdrop-blur-lg border border-black shadow-[0_20px_50px_rgba(255,20,147,0.9)]"

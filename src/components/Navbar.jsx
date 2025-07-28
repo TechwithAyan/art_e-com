@@ -58,15 +58,15 @@ const Navbar = ({ darkMode, onSelect = () => {} }) => {
         <div className="flex justify-between items-center px-6 relative">
           {/* 🔥 Left - Logo */}
           <div
-            className="text-3xl font-extrabold bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 
+            className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 
             bg-clip-text text-transparent font-cursive drop-shadow-md hover:scale-105 transition-transform cursor-pointer"
             onClick={() => navigate("/")}
           >
             Art & Craft Hub
           </div>
 
-          {/* 🔥 Center - Rashmita's Creative Studio */}
-          <div className="absolute left-1/2 transform -translate-x-1/2">
+          {/* 🔥 Center - Rashmita's Creative Studio (hidden on small screens) */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:block">
             <div
               className={`text-3xl md:text-5xl font-semibold font-[Dancing Script] bg-clip-text text-transparent drop-shadow-xl ${
                 darkMode
@@ -189,4 +189,4 @@ const Navbar = ({ darkMode, onSelect = () => {} }) => {
   );
 };
 
-export default Navbar;  
+export default Navbar;
