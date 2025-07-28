@@ -2,37 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* ✅ Fade In Animation */
+/* Custom Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.animate-fadeIn {
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-/* ✅ Float Animation */
-@keyframes float {
-  0%, 100% {
     transform: translateY(0);
   }
-  50% {
-    transform: translateY(-10px);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+.fade-in {
+  animation: fadeIn 1s ease-out;
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Responsive fixes */
+body {
+  @apply bg-white text-black dark:bg-black dark:text-white transition-colors duration-500 ease-in-out overflow-x-hidden;
+}
+
+/* Ensure images don't overflow */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive padding/margin tweaks for sections */
+section,
+.main-container,
+.content-wrapper {
+  @apply px-4 md:px-8 lg:px-16 py-4;
+}
+
+/* Fix for flex elements wrapping incorrectly */
+.flex-wrap-fix {
+  @apply flex flex-wrap justify-center gap-4;
+}
+
+/* Fix text overflow */
+.text-wrap-fix {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Prevent tilt cards or particle overlaps on small screens */
+.tilt-card,
+.card {
+  @apply max-w-[90vw] sm:max-w-[80vw] md:max-w-[300px] mx-auto;
+}
+
+/* Navbar responsiveness fix */
+.navbar-menu {
+  @apply flex flex-col md:flex-row items-center gap-2 md:gap-4;
+}
+
+/* Ensure footer stays clean */
+.footer {
+  @apply text-sm sm:text-base px-4 py-6 text-center;
 }

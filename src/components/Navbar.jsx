@@ -189,5 +189,4 @@ const Navbar = ({ darkMode, onSelect = () => {} }) => {
   );
 };
 
-export default Navbar;
-
+export default Navbar;  
